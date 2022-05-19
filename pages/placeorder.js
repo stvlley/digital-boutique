@@ -225,7 +225,7 @@ function PlaceOrder() {
               </ListItem>
               <ListItem>
                 <Button
-                  onClick={() => console.log(state)}
+                  onClick={placeOrderHandler}
                   variant="contained"
                   color="primary"
                   fullWidth

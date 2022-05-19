@@ -8,6 +8,8 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Logo from '../public/images/dhf.png'
+import Footer from '../public/images/footer.png'
+
 
 export default function Layout({ description, title, children }) {
   const { state, dispatch } = useContext(Store);
@@ -69,6 +71,7 @@ export default function Layout({ description, title, children }) {
   return (
     <div className={classes.doc}>
       <Head>
+        
         <title>{title ? `${title} - Digital Fashion House` : 'Digital Fashion House'}</title>
         {description && <meta name="description" content={description}></meta>}
       </Head>
@@ -81,8 +84,8 @@ export default function Layout({ description, title, children }) {
                 <Image
                   src={Logo}
                   alt="DFH LOGO"
-                  width={50}
-                  height={50}
+                  width={70}
+                  height={70}
                 />
                 <Typography className={classes.brand}>
 
@@ -149,7 +152,12 @@ export default function Layout({ description, title, children }) {
           {children}
         </Container>
         <footer className={classes.footer}>
-          <Typography>All Rights Reserved | Digital Boutique | 2022</Typography>
+          <Image
+                  src={Footer}
+                  alt="All Rights Reserved | Digital Fashion House | 2022"
+                  width={350}
+                  height={350}
+                />
         </footer>
 
       </ThemeProvider>

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import '../styles/globals.css'
 import { StoreProvider } from '../utils/Store'
 
+
 function MyApp({ Component, pageProps }) {
   const [showChild, setShowChild] = useState(false)
   useEffect(() => {
