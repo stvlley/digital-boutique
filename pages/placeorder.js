@@ -24,7 +24,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import useStyles from '../utils/styles';
 import CheckoutWizard from '../components/CheckoutWizard';
-import { useSnackbar } from 'notistack';
+// import { useSnackbar } from 'notistack';
 import { getError } from '../utils/error';
 import Cookies from 'js-cookie';
 
@@ -81,7 +81,10 @@ function PlaceOrder() {
       router.push(`/order/${data._id}`);
     } catch (err) {
       setLoading(false);
-      alert(getError(err), { variant: 'error' });
+      //alert(getError(err), { variant: 'error' });
+      dispatch({ type: 'CART_CLEAR' })
+      Cookies.remove('cartItems')
+      router.push('/cart')
     }
   };
   return (
