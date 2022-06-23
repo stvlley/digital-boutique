@@ -56,36 +56,43 @@ function PlaceOrder() {
   const [loading, setLoading] = useState(false);
   const placeOrderHandler = async () => {
     // closeSnackbar();
-    try {
-      setLoading(true);
-      const { data } = await axios.post(
-        '/api/orders',
-        {
-          orderItems: cartItems,
-          shippingAddress,
-          paymentMethod,
-          itemsPrice,
-          shippingPrice,
-          taxPrice,
-          totalPrice,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${userInfo.token}`,
-          },
-        }
-      );
-      dispatch({ type: 'CART_CLEAR' });
-      Cookies.remove('cartItems');
-      setLoading(false);
-      router.push(`/order/${data._id}`);
-    } catch (err) {
-      setLoading(false);
-      //alert(getError(err), { variant: 'error' });
-      dispatch({ type: 'CART_CLEAR' })
-      Cookies.remove('cartItems')
-      router.push('/cart')
-    }
+    // try {
+    //   setLoading(true);
+    //   const { data } = await axios.post(
+    //     '/api/orders',
+    //     {
+    //       orderItems: cartItems,
+    //       shippingAddress,
+    //       paymentMethod,
+    //       itemsPrice,
+    //       shippingPrice,
+    //       taxPrice,
+    //       totalPrice,
+    //     },
+    //     {
+    //       headers: {
+    //         authorization: `Bearer ${userInfo.token}`,
+    //       },
+    //     }
+    //   );
+    //   dispatch({ type: 'CART_CLEAR' });
+    //   Cookies.remove('cartItems');
+    //   setLoading(false);
+    //   router.push(`/order/${data._id}`);
+    // } catch (err) {
+    //   setLoading(false);
+    //   alert(getError(err), { variant: 'error' });
+      
+    // }
+    setTimeout(function(){
+      
+      router.push('/confirmation')
+   }, 1000);
+   setTimeout(function(){
+      
+    router.push('/')
+  }, 2000);
+   
   };
   return (
     <Layout title="Place Order">

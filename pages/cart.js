@@ -27,7 +27,8 @@ function CartScreen() {
         dispatch({type: 'CART_REMOVE_ITEM', payload: item})
     }
 
-    const checkOutHnadler = () => {
+    const checkOutHnadler = (e) => {
+        e.preventDefault()
         router.push('/shipping')
     }
 

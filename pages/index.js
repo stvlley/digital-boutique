@@ -7,6 +7,8 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { Store } from '../utils/Store'
+import About from '../public/about.gif'
+import Image from 'next/image'
 
 export default function Home(props) {
   const { products } = props;
@@ -28,7 +30,9 @@ export default function Home(props) {
   }
   return (
     <Layout>
+      
       <div>
+      
         <h1>Products</h1>
         <Grid container spacing={3}>
           {products.map((product) => (
@@ -41,6 +45,7 @@ export default function Home(props) {
                       image={product.image}
                       title={product.name}
                     ></CardMedia>
+                    
                     <CardContent>
                       <Typography>{product.name}</Typography>
                     </CardContent>
@@ -52,11 +57,15 @@ export default function Home(props) {
                     Add to cart
                   </Button>
                 </CardActions>
+                <footer></footer>
               </Card>
             </Grid>
           ))}
+          
         </Grid>
+        
       </div>
+      
     </Layout>
 
   )

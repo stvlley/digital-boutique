@@ -95,6 +95,11 @@ export default function Layout({ description, title, children }) {
             <div className={classes.grow} ></div>
             <div>
               <Switch checked={darkMode} onChange={darkModeChangeHandler}></Switch>
+              <NextLink href='/about' passHref>
+                <Link>
+                    ABOUT
+                </Link>
+              </NextLink>
               <NextLink href='/cart' passHref>
                 <Link>
                   {cart.cartItems.length > 0 ? <Badge color='secondary' badgeContent={cart.cartItems.length}>
